@@ -30,8 +30,8 @@ public class BallLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pivot.transform.Rotate(Vector3.forward, 90f * Time.deltaTime);
-        transform.Rotate(Vector3.forward, 90f * Time.deltaTime);
+        pivot.transform.Rotate(Vector3.forward, 90f * (Time.deltaTime * 3f));
+        transform.Rotate(Vector3.forward, 90f * (Time.deltaTime * 3f));
 
         //Debug.LogError("HAs Clicked: " + hasClicked);
         if (Input.GetKeyDown(KeyCode.Mouse0) && !hasClicked)
