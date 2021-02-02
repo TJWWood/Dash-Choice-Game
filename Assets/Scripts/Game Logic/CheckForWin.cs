@@ -40,6 +40,8 @@ public class CheckForWin : MonoBehaviour
 
     public static event Action RoundWin = delegate { };
 
+    GameObject pivot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class CheckForWin : MonoBehaviour
 
         leftWin = false;
         rightWin = false;
+        pivot = GameObject.Find("Pivot");
     }
 
     // Update is called once per frame
@@ -144,6 +147,7 @@ public class CheckForWin : MonoBehaviour
             //Debug.LogError("done");
             leftTouch.SetActive(true);
             rightTouch.SetActive(true);
+            //pivot.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
     }
 
@@ -269,13 +273,13 @@ public class CheckForWin : MonoBehaviour
             {
                 rightBallMovedToNewRightPos = false;
                 leftBallMovedToNewLeftPos = false;
-                done = true;
                 leftBall.GetComponent<Rigidbody>().isKinematic = false;
                 rightBall.GetComponent<Rigidbody>().isKinematic = false;
                 leftBall.GetComponent<SphereCollider>().enabled = true;
                 rightBall.GetComponent<SphereCollider>().enabled = true;
                 leftBall.AddComponent<UnDissolve>();
                 rightGoalWall.AddComponent<UnDissolve>(); 
+                done = true;
             }
             //Camera.main.transform.position = new Vector3(0f, Camera.main.transform.position.y + 4f, 0f);
         }

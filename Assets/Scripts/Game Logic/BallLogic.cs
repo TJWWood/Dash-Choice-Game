@@ -25,7 +25,10 @@ public class BallLogic : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         pivot = GameObject.Find("Pivot");
         Vector3 arrowPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.05f, gameObject.transform.position.z);
+        Quaternion arrowRot = new Quaternion(0f, 0f, 0f, 0f);
         pivot.transform.position = arrowPos;
+        pivot.transform.rotation = arrowRot;
+        transform.rotation = arrowRot;
     }
     // Update is called once per frame
     void Update()
